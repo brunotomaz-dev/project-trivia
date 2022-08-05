@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import nomeReducer2 from './nomeReducer2';
+import headerReducer from './headerReducer';
 
 const rootReducer = combineReducers({
-  nomeReducer2,
+  headerReducer,
 });
 
 export default rootReducer;

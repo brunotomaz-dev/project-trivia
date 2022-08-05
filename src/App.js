@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Login from './components/Login';
+import Login from './pages/Login';
+import Header from './components/Header';
 // import logo from './trivia.png';
 
 export default function App() {
@@ -12,8 +13,11 @@ export default function App() {
     //     <p>SUA VEZ</p>
     //   </header>
     // </div>
-    <Switch>
-      <Route exact path="/" component={ Login } />
-    </Switch>
+    <>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={ Login } />
+      </Switch>
+    </>
   );
 }
