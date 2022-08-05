@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Settings from './Settings';
 
 class Login extends React.Component {
   constructor() {
@@ -8,6 +9,7 @@ class Login extends React.Component {
       name: '',
       email: '',
       buttonDisabled: true,
+      redirectConfig: false,
     };
   }
 
@@ -35,9 +37,10 @@ class Login extends React.Component {
   }
 
   render() {
-    const { name, email, buttonDisabled } = this.state;
+    const { name, email, buttonDisabled, redirectConfig } = this.state;
     return (
       <div className="Login">
+        { redirectConfig ? <Settings /> : '' }
         <label htmlFor="input-player-name">
           NAME:
           <input
@@ -69,6 +72,14 @@ class Login extends React.Component {
           disabled={ buttonDisabled }
         >
           PLAY
+        </button>
+
+        <button
+          type="button"
+          data-testid="btn-settings"
+          onClick={ () => this.setState({ redirectConfig: true }) }
+        >
+          Configurações
         </button>
       </div>
     );
