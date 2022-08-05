@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Settings from './Settings';
+import { actionSetEmail } from '../redux/actions/headerActions';
+
 
 class Login extends React.Component {
   constructor() {
@@ -36,9 +38,15 @@ class Login extends React.Component {
   submitClick = async (event) => {
     const { history } = this.props;
     event.preventDefault();
+    // fazer requisição e salver o token no localStorage
     const fetchToken = await fetch('https://opentdb.com/api_token.php?command=request');
     const returnToken = await fetchToken.json();
     localStorage.setItem('token', returnToken.token);
+    // alterar Email do State Global
+    const { changeEmail } = this.props;
+    const { email, name } = this.state;
+    changeEmail(email, name);
+    // alterar a url da aplicação
     history.push('/game');
   }
 
@@ -92,9 +100,16 @@ class Login extends React.Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  changeEmail: (email, name) => dispatch(actionSetEmail(email, name)),
+});
+
 Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
-  }).isRequired,
-};
-export default connect(null, null)(Login);
+  }),
+  changeEmail: PropTypes.func,
+}.isRequired;
+
+export default connect(null, mapDispatchToProps)(Login);
+
