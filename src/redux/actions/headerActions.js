@@ -1,8 +1,16 @@
 export const GET_GRAVATAR = 'GET_GRAVATAR';
+export const SET_EMAIL = 'SET_EMAIL';
 
-const actionGetGravatar = (hash) => ({
+export const actionGetGravatar = (hash) => ({
   type: GET_GRAVATAR,
-  gravatarEndPoint: `https://www.gravatar.com/avatar/${hash}`,
+  payload: `https://www.gravatar.com/avatar/${hash}`,
 });
 
-export default actionGetGravatar;
+export const actionSetEmail = (email, name) => ({
+  type: SET_EMAIL,
+  name,
+  email,
+
+});
+
+// export default actionGetGravatar;
