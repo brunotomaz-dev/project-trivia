@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Settings from './Settings';
 import { actionSetEmail } from '../redux/actions/headerActions';
 
-
 class Login extends React.Component {
   constructor() {
     super();
@@ -112,4 +111,3 @@ Login.propTypes = {
 }.isRequired;
 
 export default connect(null, mapDispatchToProps)(Login);
-
