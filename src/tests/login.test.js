@@ -2,7 +2,7 @@ import React from "react";
 import App from "../App";
 import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux";
 import userEvent from "@testing-library/user-event";
-import { cleanup, screen } from "@testing-library/react";
+import { cleanup, screen, waitFor } from "@testing-library/react";
 import userMock from "./helpers/helpsForTests";
 
 describe('Testa a página de login', () => {
@@ -29,15 +29,25 @@ describe('Testa a página de login', () => {
     const inputEmail = screen.getByLabelText(/email/i);
     const playButton = screen.getByRole('button', {name: 'Play'})
     
-    await userEvent.type(inputName, userMock.name);
-    await userEvent.type(inputEmail, userMock.email);
-    await userEvent.click(playButton);
+    userEvent.type(inputName, userMock.name);
+    userEvent.type(inputEmail, userMock.email);
+    userEvent.click(playButton);
     // screen.logTestingPlaygroundURL();
 
-    screen.getByText('Game Page')
+    await screen.findByText('Game Page');
 
-    const {location: {pathname}} = history
-    expect(pathname).toBe('/game')
+    waitFor(() => {
+      const {location: {pathname}} = history;
+      expect(pathname).toBe('/game');
+    })
+  })
+
+  test('Testando o click no botão de Configurações: ', async () => {
+    const { history } = renderWithRouterAndRedux(<App />);
+    const configButton = screen.getByTestId('btn-settings');
+    // screen.logTestingPlaygroundURL();
+    userEvent.click(configButton);
+    screen.getByText(/Settings/i);
   })
   
 });
