@@ -2,6 +2,7 @@ export const QUESTIONS_API = 'QUESTIONS_API';
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const GET_QUESTIONS_ERROR = 'GET_QUESTIONS_ERROR';
 export const RECEIVE_NEW_SCORE = 'RECEIVE_NEW_SCORE';
+export const CLEAR_SCORE = 'CLEAR_SCORE';
 
 const questionsAPI = () => ({ type: QUESTIONS_API });
 
@@ -23,4 +24,8 @@ export const requestQuestions = (URL) => async (dispatch) => {
 export const receiveScore = (newScore) => ({
   type: RECEIVE_NEW_SCORE,
   payload: newScore,
+});
+
+export const clearScore = () => ({
+  type: CLEAR_SCORE,
 });
