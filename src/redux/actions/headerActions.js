@@ -12,5 +12,3 @@ export const actionSetEmail = (email, name) => ({
   email,
 
 });
-
-// export default actionGetGravatar;

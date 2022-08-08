@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
-import Header from './components/Header';
 import Game from './pages/Game';
+import Header from './components/Header';
+import Login from './pages/Login';
 import Settings from './pages/Settings';
 // import logo from './trivia.png';
 
