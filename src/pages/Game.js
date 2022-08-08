@@ -73,6 +73,7 @@ class Game extends React.Component {
     const maxIndex = 5;
     this.setState((prevState) => ({
       showBorder: false,
+      timer: 30,
       index: (prevState.index < maxIndex) ? prevState.index + 1 : 0,
     }));
   }
@@ -109,7 +110,7 @@ class Game extends React.Component {
         { questionsComponent }
         {
           (showBorder)
-            ? <NextButton changeIndex={ this.changeIndex } />
+            ? <NextButton changeIndex={ this.changeIndex } indexQuestion={ index } />
             : ''
         }
       </div>
