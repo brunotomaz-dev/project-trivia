@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { receiveScore, requestQuestions } from '../redux/actions/gameActions';
 import Questions from '../components/Questions';
 import Timer from '../components/Timer';
+import { receiveScore, requestQuestions } from '../redux/actions/gameActions';
+import Header from '../components/Header';
 
 class Game extends React.Component {
   constructor() {
@@ -67,6 +68,9 @@ class Game extends React.Component {
     const { responseCode, questions } = this.props;
     const { timer, disabled, showBorder } = this.state;
 
+    // console.log('reponseCode', responseCode);
+    // console.log('questions', questions);
+
     if (questions === undefined) return '';
     const invalidTokenCode = 3;
     const questionsComponent = (
@@ -79,9 +83,10 @@ class Game extends React.Component {
     );
     return (
       <div className="Game">
+        <Header />
         {
           // cria o componente timer e desmonta quando o tempo acabar
-          (timer > 0)
+          (timer > 0 && showBorder === false)
             ? <Timer changeShowBorder={ this.changeShowBorderPerTime } timer={ timer } />
             : ''
         }

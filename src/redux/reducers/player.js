@@ -1,13 +1,14 @@
+import { RECEIVE_NEW_SCORE } from '../actions/gameActions';
 import { GET_GRAVATAR, SET_EMAIL } from '../actions/headerActions';
 
 const INITIAL_STATE = {
   name: '',
   email: '',
   gravatarEndPoint: '',
-  score: '',
+  score: 0,
 };
 
-const headerReducer = (state = INITIAL_STATE, action) => {
+const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case GET_GRAVATAR:
     console.log(action.payload);
@@ -20,11 +21,18 @@ const headerReducer = (state = INITIAL_STATE, action) => {
       ...state,
       name: action.name,
       email: action.email,
-      score: 0,
+    };
+  case RECEIVE_NEW_SCORE:
+    return {
+      ...state,
+      name: state.name,
+      gravatarEmail: state.gravatarEmail,
+      score: action.payload,
+      assetions: state.assertions,
     };
   default:
     return state;
   }
 };
 
-export default headerReducer;
+export default player;
