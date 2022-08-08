@@ -9,7 +9,7 @@ class NextButton extends React.Component {
         type="button"
         className="game-next-button"
         onClick={ changeIndex }
-        data-testId="btn-next"
+        data-testid="btn-next"
       >
         Next
       </button>
