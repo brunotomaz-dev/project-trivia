@@ -15,7 +15,7 @@ export const requestQuestions = (URL) => async (dispatch) => {
   dispatch(questionsAPI());
   const fetchURL = await fetch(URL);
   const jsonURL = await fetchURL.json();
-  console.log(jsonURL);
+  // console.log(jsonURL);
   dispatch(getQuestions(jsonURL));
 };
 

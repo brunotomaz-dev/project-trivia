@@ -10,16 +10,10 @@ class Header extends React.Component {
     getGravatar(email);
   }
 
-  componentDidUpdate() {
-    const { getGravatar, email } = this.props;
-    getGravatar(email);
-  }
-
   render() {
     const { score, name, gravatarEndPoint } = this.props;
     return (
       <header className="header">
-        <p>Game Page</p>
         <h2 className="header-score" data-testid="header-score">
           { score }
         </h2>
@@ -37,10 +31,10 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (store) => ({
-  email: store.headerReducer.email,
-  score: store.headerReducer.score,
-  name: store.headerReducer.name,
-  gravatarEndPoint: store.headerReducer.gravatarEndPoint,
+  email: store.player.email,
+  score: store.player.score,
+  name: store.player.name,
+  gravatarEndPoint: store.player.gravatarEndPoint,
 });
 
 const mapDispatchToProps = (dispatch) => ({
