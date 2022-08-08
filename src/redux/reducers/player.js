@@ -27,7 +27,7 @@ const player = (state = INITIAL_STATE, action) => {
       ...state,
       name: state.name,
       gravatarEmail: state.gravatarEmail,
-      score: action.payload,
+      score: state.score + action.payload,
       assetions: state.assertions,
     };
   default:
