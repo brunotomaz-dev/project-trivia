@@ -6,6 +6,7 @@ import Questions from '../components/Questions';
 import Timer from '../components/Timer';
 import { receiveScore, requestQuestions } from '../redux/actions/gameActions';
 import Header from '../components/Header';
+import NextButton from '../components/NextButton';
 
 class Game extends React.Component {
   constructor() {
@@ -14,12 +15,17 @@ class Game extends React.Component {
       timer: 30,
       disabled: false,
       showBorder: false,
+      index: 0,
     };
   }
 
   componentDidMount() {
     // console.log('oi');
     this.counterTimer();
+    this.receiveAPI();
+  }
+
+  receiveAPI = () => {
     const { requestQuestionsDispatch } = this.props;
     const token = localStorage.getItem('token');
     const URL = `https://opentdb.com/api.php?amount=5&token=${token}`;
@@ -63,10 +69,18 @@ class Game extends React.Component {
     });
   }
 
+  changeIndex = () => {
+    const maxIndex = 5;
+    this.setState((prevState) => ({
+      showBorder: false,
+      index: (prevState.index < maxIndex) ? prevState.index + 1 : 0,
+    }));
+  }
+
   render() {
     // console.log('render');
     const { responseCode, questions } = this.props;
-    const { timer, disabled, showBorder } = this.state;
+    const { timer, disabled, showBorder, index } = this.state;
 
     // console.log('reponseCode', responseCode);
     // console.log('questions', questions);
@@ -75,6 +89,7 @@ class Game extends React.Component {
     const invalidTokenCode = 3;
     const questionsComponent = (
       <Questions
+        indexQuestion={ index }
         showBorder={ showBorder }
         changeShowBorder={ this.changeShowBorder }
         questions={ questions }
@@ -92,6 +107,11 @@ class Game extends React.Component {
         }
         { responseCode === invalidTokenCode ? <Redirect exact path="/" /> : '' }
         { questionsComponent }
+        {
+          (showBorder)
+            ? <NextButton changeIndex={ this.changeIndex } />
+            : ''
+        }
       </div>
     );
   }

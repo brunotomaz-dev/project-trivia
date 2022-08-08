@@ -5,6 +5,7 @@ import '../CSS/questions.css';
 
 class Questions extends React.Component {
   render() {
+    const { indexQuestion } = this.props;
     const difficultyPoints = {
       easy: 1,
       medium: 2,
@@ -15,7 +16,7 @@ class Questions extends React.Component {
 
     const invalidCode = 3;
     if (questions === undefined || responseCode === invalidCode) return '';
-    const currentQuestion = questions[0];
+    const currentQuestion = questions[indexQuestion];
     const {
       category,
       question,
@@ -83,6 +84,7 @@ const mapStateToProps = (store) => ({
 });
 
 Questions.propTypes = {
+  indexQuestion: PropTypes.number.isRequired,
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
   responseCode: PropTypes.number.isRequired,
   showBorder: PropTypes.bool.isRequired,
