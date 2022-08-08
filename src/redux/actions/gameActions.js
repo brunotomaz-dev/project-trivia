@@ -1,6 +1,7 @@
 export const QUESTIONS_API = 'QUESTIONS_API';
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const GET_QUESTIONS_ERROR = 'GET_QUESTIONS_ERROR';
+export const RECEIVE_NEW_SCORE = 'RECEIVE_NEW_SCORE';
 
 const questionsAPI = () => ({ type: QUESTIONS_API });
 
@@ -17,3 +18,9 @@ export const requestQuestions = (URL) => async (dispatch) => {
   console.log(jsonURL);
   dispatch(getQuestions(jsonURL));
 };
+
+// Action para atualizar a score quando acertar a resposta
+export const receiveScore = (newScore) => ({
+  type: RECEIVE_NEW_SCORE,
+  payload: newScore,
+});

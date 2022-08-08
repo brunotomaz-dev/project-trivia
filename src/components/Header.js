@@ -19,6 +19,7 @@ class Header extends React.Component {
     const { score, name, gravatarEndPoint } = this.props;
     return (
       <header className="header">
+        <p>Game Page</p>
         <h2 className="header-score" data-testid="header-score">
           { score }
         </h2>
@@ -51,7 +52,7 @@ Header.propTypes = {
   email: PropTypes.string.isRequired,
   getGravatar: PropTypes.func.isRequired,
   gravatarEndPoint: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
+  score: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

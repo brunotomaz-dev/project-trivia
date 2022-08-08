@@ -10,5 +10,4 @@ export const actionSetEmail = (email, name) => ({
   type: SET_EMAIL,
   name,
   email,
-
 });

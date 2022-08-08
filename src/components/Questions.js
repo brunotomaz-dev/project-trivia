@@ -4,17 +4,14 @@ import { connect } from 'react-redux';
 import '../CSS/questions.css';
 
 class Questions extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showBorder: false,
-    };
-  }
-
   render() {
+    const difficultyPoints = {
+      easy: 1,
+      medium: 2,
+      hard: 3,
+    };
     const { questions, responseCode } = this.props;
-    const { showBorder } = this.state;
+    const { showBorder, changeShowBorder } = this.props;
 
     const invalidCode = 3;
     if (questions === undefined || responseCode === invalidCode) return '';
@@ -25,14 +22,17 @@ class Questions extends React.Component {
     } = currentQuestion;
     const correctAnswer = currentQuestion.correct_answer;
     const incorrectAnswers = currentQuestion.incorrect_answers;
+    const { difficulty } = currentQuestion;
 
     const correctAnswerElement = (
       <button
         type="button"
         data-testid="correct-answer"
         id="correct-answer"
-        onClick={ () => this.setState({ showBorder: true }) }
+        name={ difficultyPoints[difficulty] }
+        onClick={ changeShowBorder }
         className={ showBorder ? 'correct' : '' }
+        disabled={ showBorder }
       >
         { correctAnswer }
       </button>
@@ -44,8 +44,10 @@ class Questions extends React.Component {
           type="button"
           data-testid={ `wrong-answer-${index}` }
           id={ `wrong-answer-${index}` }
-          onClick={ () => this.setState({ showBorder: true }) }
+          name={ difficultyPoints[difficulty] }
+          onClick={ changeShowBorder }
           className={ showBorder ? 'wrong' : '' }
+          disabled={ showBorder }
         >
           { answer }
         </button>
@@ -83,6 +85,8 @@ const mapStateToProps = (store) => ({
 Questions.propTypes = {
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
   responseCode: PropTypes.number.isRequired,
+  showBorder: PropTypes.bool.isRequired,
+  changeShowBorder: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, null)(Questions);
