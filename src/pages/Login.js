@@ -59,48 +59,57 @@ class Login extends React.Component {
   render() {
     const { name, email, buttonDisabled, redirectConfig } = this.state;
     return (
-      <div className="Login">
-        { redirectConfig ? <Settings /> : '' }
-        <label htmlFor="input-player-name">
-          NAME:
-          <input
-            type="text"
-            id="input-player-name"
-            data-testid="input-player-name"
-            value={ name }
-            name="name"
-            onChange={ this.handleChange }
-          />
-        </label>
+      <div style={ { display: 'flex' } }>
+        <div style={ { display: 'flex', justifyContent: 'flex-end' } }>
+          <img className="riddleImg wobble-hor-bottom" src="https://i.pinimg.com/originals/5e/da/84/5eda849200c4e02d288d91ea2564d944.png" alt="riddler" />
+        </div>
+        <div className="Login">
+          {redirectConfig ? <Settings /> : ''}
+          <label htmlFor="input-player-name">
+            NAME:
+            <input
+              type="text"
+              id="input-player-name"
+              data-testid="input-player-name"
+              value={ name }
+              name="name"
+              onChange={ this.handleChange }
+            />
+          </label>
 
-        <label htmlFor="input-gravatar-email">
-          EMAIL:
-          <input
-            type="email"
-            id="input-gravatar-email"
-            data-testid="input-gravatar-email"
-            value={ email }
-            name="email"
-            onChange={ this.handleChange }
-          />
-        </label>
+          <label htmlFor="input-gravatar-email">
+            EMAIL:
+            <input
+              type="email"
+              id="input-gravatar-email"
+              data-testid="input-gravatar-email"
+              value={ email }
+              name="email"
+              onChange={ this.handleChange }
+            />
+          </label>
 
-        <button
-          type="submit"
-          data-testid="btn-play"
-          onClick={ this.submitClick }
-          disabled={ buttonDisabled }
-        >
-          Play
-        </button>
+          <button
+            type="submit"
+            data-testid="btn-play"
+            onClick={ this.submitClick }
+            disabled={ buttonDisabled }
+          >
+            Play
+          </button>
 
-        <button
-          type="button"
-          data-testid="btn-settings"
-          onClick={ () => this.setState({ redirectConfig: true }) }
-        >
-          Configurações
-        </button>
+          <button
+            type="button"
+            data-testid="btn-settings"
+            onClick={ () => this.setState({ redirectConfig: true }) }
+          >
+            Configurações
+          </button>
+        </div>
+        <div>
+          <img className="riddleImg wobble-hor-bottom" src="https://i.pinimg.com/originals/5e/da/84/5eda849200c4e02d288d91ea2564d944.png" alt="riddler" />
+        </div>
+
       </div>
     );
   }
