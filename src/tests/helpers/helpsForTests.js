@@ -127,4 +127,10 @@ export const clear = {
   gameReducer: {},
 }
 
+export function timerGame(callBack) {
+  setTimeout(() => {
+    console.log('times up');
+  }, 2000)
+}
+
 export default userMock;

@@ -70,7 +70,7 @@ class Game extends React.Component {
   }
 
   changeIndex = () => {
-    const maxIndex = 5;
+    const maxIndex = 4;
     this.setState((prevState) => ({
       showBorder: false,
       timer: 30,
@@ -106,7 +106,7 @@ class Game extends React.Component {
             ? <Timer changeShowBorder={ this.changeShowBorderPerTime } timer={ timer } />
             : ''
         }
-        { responseCode === invalidTokenCode ? <Redirect exact path="/" /> : '' }
+        { responseCode === invalidTokenCode ? <Redirect to="/" /> : '' }
         { questionsComponent }
         {
           (showBorder)

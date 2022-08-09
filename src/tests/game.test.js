@@ -4,8 +4,8 @@ import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux";
 import { cleanup, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Game from '../pages/Game';
-import { clear, firstInitialState, fourthInitialState, results, secondInitialState, thirdInitialState } from './helpers/helpsForTests';
-import App from '../App';
+import { clear, firstInitialState, fourthInitialState, results, secondInitialState, thirdInitialState, timerGame } from './helpers/helpsForTests';
+
 
 describe('component FeedBack', () => {
   beforeEach(cleanup)
@@ -52,9 +52,9 @@ describe('component FeedBack', () => {
   });
 
   test('conferindo as questions', async () => {
-    renderWithRouterAndRedux(<Game />, thirdInitialState, '/game');
+    const { history } = renderWithRouterAndRedux(<Game />, thirdInitialState, '/game');
     // screen.logTestingPlaygroundURL();
-    const repeat = 3;
+    const repeat = 4;
     for (let index = 0; index < repeat; index++) {
         const choose = screen.getByTestId('correct-answer');
         userEvent.click(choose);
@@ -62,20 +62,32 @@ describe('component FeedBack', () => {
         const next = screen.getByTestId('btn-next')
         userEvent.click(next);
         // screen.logTestingPlaygroundURL();
-    }
-    // no último teste vou clicar na opção errada
-    const choose = screen.getByTestId('wrong-answer-1');
-    userEvent.click(choose);
-
-    // screen.logTestingPlaygroundURL();
-    const next = screen.getByTestId('btn-next')
-    userEvent.click(next);
-  });
+      }
+      // no último teste vou clicar na opção errada
+      const choose = screen.getByTestId('wrong-answer-1');
+      userEvent.click(choose);
+      
+      const next = screen.getByTestId('btn-next')
+      userEvent.click(next);
+      expect(history.location.pathname).toBe('/feedback');
+    });
 
   test('conferindo as questions', async () => {
     const { history } = renderWithRouterAndRedux(<Game />, fourthInitialState, '/game');
     // expect(history.location.pathname).toBe('/game');
     await waitFor(() => expect(history.location.pathname).toBe('/'));
     // screen.logTestingPlaygroundURL();
+  });
+
+  jest.useFakeTimers();
+  jest.spyOn(global, 'setTimeout');
+  test('conferindo as questions', async () => {
+    const component = renderWithRouterAndRedux(<Game />, fourthInitialState, '/game');
+    const timer = timerGame;
+    timer();
+    screen.logTestingPlaygroundURL();
+
+    expect(setTimeout).toHaveBeenCalledTimes(2);
+
   });
 })
