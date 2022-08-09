@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { clearScore } from '../redux/actions/gameActions';
 
 class FeedBack extends React.Component {
   getScoreInfo = () => {
-    console.log('oioi')
     const initialRanking = [];
     const { score, name, email, gravatarEndPoint } = this.props;
     const rankingInfo = JSON.parse(localStorage.getItem('ranking')) || initialRanking;
@@ -77,6 +76,9 @@ FeedBack.propTypes = {
   assertions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
   clearScoreDispatch: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  gravatarEndPoint: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedBack);
