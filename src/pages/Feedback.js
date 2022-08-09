@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { clearScore } from '../redux/actions/gameActions';
-import { connect } from 'react-redux';
 
 class FeedBack extends React.Component {
   clearScore = () => {
