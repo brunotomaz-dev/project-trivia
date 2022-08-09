@@ -2,45 +2,16 @@ import React from 'react';
 import FeedBack from '../pages/Feedback';
 import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux";
 import { cleanup, screen, waitFor } from '@testing-library/react';
-import { toHaveTextContent } from '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-
-const firstInitialState = {
-  player: {
-    name:"Leonardo",
-    assertions: 0,
-    email:"leo@gmail.com",
-    gravatarEndPoint:"https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e",
-    score: 0,
-  }
-}
-
-const secondInitialState = {
-  player: {
-    name: "Leonardo",
-    assertions: 5,
-    email: "leo@gmail.com",
-    gravatarEndPoint: "https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e",
-    score: 200,
-  }
-}
-
-const clear = {
-    player: {
-      name: '',
-      assertions: 0,
-      email: '',
-      gravatarEndPoint: '',
-      score: 0,
-    },
-    gameReducer: {},
-}
+import Game from '../pages/Game';
+import { clear, firstInitialState, fourthInitialState, results, secondInitialState, thirdInitialState } from './helpers/helpsForTests';
+import App from '../App';
 
 describe('component FeedBack', () => {
   beforeEach(cleanup)
   test('os valores do componente FeedBack aparecem na tela', () => {
     renderWithRouterAndRedux(<FeedBack />, firstInitialState);
-    screen.logTestingPlaygroundURL();
+    // screen.logTestingPlaygroundURL();
     const score = screen.getByTestId('header-score');
     const playerName = screen.getByRole('heading', { name: /leonardo/i });
     const gravatar = screen.getByRole('img', { name: /gravatar/i });
@@ -55,7 +26,7 @@ describe('component FeedBack', () => {
     expect(information).toHaveTextContent('Could be better...');
     expect(totalScore).toHaveTextContent('0');
     expect(totalAssertions).toHaveTextContent('0');
-  })
+  });
 
   test('os valores do componente FeedBack aparecem na tela', async () => {
     const { store } = renderWithRouterAndRedux(<FeedBack />, secondInitialState);
@@ -75,8 +46,36 @@ describe('component FeedBack', () => {
     expect(totalAssertions).toHaveTextContent('5');
     
     userEvent.click(screen.getByRole('button', { name: /play again/i }));
-    console.log(store.getState());
+
     expect(store.getState()).toStrictEqual(clear)
-    screen.logTestingPlaygroundURL();
-  })
+    // screen.logTestingPlaygroundURL();
+  });
+
+  test('conferindo as questions', async () => {
+    renderWithRouterAndRedux(<Game />, thirdInitialState, '/game');
+    // screen.logTestingPlaygroundURL();
+    const repeat = 3;
+    for (let index = 0; index < repeat; index++) {
+        const choose = screen.getByTestId('correct-answer');
+        userEvent.click(choose);
+
+        const next = screen.getByTestId('btn-next')
+        userEvent.click(next);
+        // screen.logTestingPlaygroundURL();
+    }
+    // no último teste vou clicar na opção errada
+    const choose = screen.getByTestId('wrong-answer-1');
+    userEvent.click(choose);
+
+    // screen.logTestingPlaygroundURL();
+    const next = screen.getByTestId('btn-next')
+    userEvent.click(next);
+  });
+
+  test('conferindo as questions', async () => {
+    const { history } = renderWithRouterAndRedux(<Game />, fourthInitialState, '/game');
+    // expect(history.location.pathname).toBe('/game');
+    await waitFor(() => expect(history.location.pathname).toBe('/'));
+    // screen.logTestingPlaygroundURL();
+  });
 })

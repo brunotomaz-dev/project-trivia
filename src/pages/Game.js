@@ -58,7 +58,7 @@ class Game extends React.Component {
     });
     const { name, id } = target;
     if (id === 'correct-answer') {
-      console.log('resposta-correta');
+      // console.log('resposta-correta');
       this.correctAnswer(name);
     }
   }

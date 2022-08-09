@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case GET_GRAVATAR:
-    console.log(action.payload);
     return {
       ...state,
       gravatarEndPoint: action.payload,
