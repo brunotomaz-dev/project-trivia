@@ -33,7 +33,8 @@ const player = (state = INITIAL_STATE, action) => {
     };
   case CLEAR_SCORE:
     return {
-      ...INITIAL_STATE,
+      ...state,
+      score: 0,
     };
   default:
     return state;
