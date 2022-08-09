@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 const player = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case GET_GRAVATAR:
-    console.log(action.payload);
     return {
       ...state,
       gravatarEndPoint: action.payload,
@@ -34,6 +33,10 @@ const player = (state = INITIAL_STATE, action) => {
   case CLEAR_SCORE:
     return {
       ...state,
+      name: '',
+      email: '',
+      assertions: 0,
+      gravatarEndPoint: '',
       score: 0,
     };
   default:

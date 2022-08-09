@@ -44,9 +44,9 @@ class Login extends React.Component {
     const { history } = this.props;
     event.preventDefault();
     // fazer requisição e salver o token no localStorage
-    const fetchToken = await fetch('https://opentdb.com/api_token.php?command=request');
-    const returnToken = await fetchToken.json();
-    localStorage.setItem('token', returnToken.token);
+    const fetchToken = await fetch('https://opentdb.com/api_token.php?command=request')
+      .then((response) => response.json());
+    localStorage.setItem('token', fetchToken.token);
     // alterar Email do State Global
     const { changeEmail } = this.props;
     const { email, name } = this.state;

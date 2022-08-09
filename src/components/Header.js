@@ -46,7 +46,7 @@ Header.propTypes = {
   email: PropTypes.string.isRequired,
   getGravatar: PropTypes.func.isRequired,
   gravatarEndPoint: PropTypes.string.isRequired,
-  score: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
