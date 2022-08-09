@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Settings from './Settings';
 import { actionSetEmail } from '../redux/actions/headerActions';
 import { clearScore } from '../redux/actions/gameActions';
+import '../CSS/login.css';
 
 class Login extends React.Component {
   constructor() {
