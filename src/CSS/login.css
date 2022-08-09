@@ -50,6 +50,21 @@ body {
   height: 50%;
 }
 
+.riddleImg2 {
+  display: flex;
+  transform: scaleX(-1);
+  width: 45%;
+}
+
+.riddleImg {
+  width: 45%;
+}
+
+.triviaLogo {
+  margin-bottom: 15px;
+  width: 250px;
+}
+
 .Login {
   align-items: center;
 
@@ -58,7 +73,7 @@ body {
   flex-direction: column;
   font-family: Courier New , Courier , monospace;
   margin: auto;
-  margin-top: 20em;
+  margin-top: 10%;
   width: 100%;
 }
 

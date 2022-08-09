@@ -60,11 +60,15 @@ class Login extends React.Component {
     const { name, email, buttonDisabled, redirectConfig } = this.state;
     return (
       <div style={ { display: 'flex' } }>
-        <div style={ { display: 'flex', justifyContent: 'flex-end' } }>
-          <img className="riddleImg wobble-hor-bottom" src="https://i.pinimg.com/originals/5e/da/84/5eda849200c4e02d288d91ea2564d944.png" alt="riddler" />
+        <div className="riddleImg2">
+          <img className=" wobble-hor-bottom" src="https://i.pinimg.com/originals/5e/da/84/5eda849200c4e02d288d91ea2564d944.png" alt="riddler" />
         </div>
         <div className="Login">
           {redirectConfig ? <Settings /> : ''}
+          <div>
+            {/* <h1 className="triviaLogo"> TRIVIA </h1> */}
+            <img className="triviaLogo" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Trivia.png/799px-Trivia.png?20100329210344" alt="test" />
+          </div>
           <label htmlFor="input-player-name">
             NAME:
             <input
@@ -106,8 +110,8 @@ class Login extends React.Component {
             Configurações
           </button>
         </div>
-        <div>
-          <img className="riddleImg wobble-hor-bottom" src="https://i.pinimg.com/originals/5e/da/84/5eda849200c4e02d288d91ea2564d944.png" alt="riddler" />
+        <div className="riddleImg">
+          <img className=" wobble-hor-bottom" src="https://i.pinimg.com/originals/5e/da/84/5eda849200c4e02d288d91ea2564d944.png" alt="riddler" />
         </div>
 
       </div>
