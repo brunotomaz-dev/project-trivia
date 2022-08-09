@@ -34,6 +34,10 @@ const player = (state = INITIAL_STATE, action) => {
   case CLEAR_SCORE:
     return {
       ...state,
+      name: '',
+      email: '',
+      assertions: 0,
+      gravatarEndPoint: '',
       score: 0,
     };
   default:

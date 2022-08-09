@@ -1,7 +1,7 @@
 import React from 'react';
-import FeedBack from '../pages/FeedBack';
+import FeedBack from '../pages/Feedback';
 import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux";
-import { cleanup, screen } from '@testing-library/react';
+import { cleanup, screen, waitFor } from '@testing-library/react';
 import { toHaveTextContent } from '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
@@ -57,7 +57,7 @@ describe('component FeedBack', () => {
     expect(totalAssertions).toHaveTextContent('0');
   })
 
-  test('os valores do componente FeedBack aparecem na tela', () => {
+  test('os valores do componente FeedBack aparecem na tela', async () => {
     const { store } = renderWithRouterAndRedux(<FeedBack />, secondInitialState);
     const score = screen.getByTestId('header-score');
     const playerName = screen.getByRole('heading', { name: /leonardo/i });
@@ -75,7 +75,8 @@ describe('component FeedBack', () => {
     expect(totalAssertions).toHaveTextContent('5');
     
     userEvent.click(screen.getByRole('button', { name: /play again/i }));
-    expect(store.getState()).toStrictEqual(clear);
+    console.log(store.getState());
+    expect(store.getState()).toStrictEqual(clear)
     screen.logTestingPlaygroundURL();
   })
 })

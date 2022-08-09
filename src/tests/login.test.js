@@ -87,4 +87,4 @@ describe('teste Login com mocks', () => {
 
     screen.logTestingPlaygroundURL();
   });
-})
+});
