@@ -36,10 +36,10 @@ describe('Testa a página de login', () => {
 
     // await screen.findByText('Game Page');
 
-    waitFor(() => {
+    await waitFor(() => {
       const {location: {pathname}} = history;
       expect(pathname).toBe('/game');
-    })
+    });
   })
 
   test('Testando o click no botão de Configurações: ', async () => {
@@ -51,3 +51,40 @@ describe('Testa a página de login', () => {
   })
   
 });
+
+const initialState = {
+  player: {
+    name: 'loenardo',
+    assertions: 0,
+    email: 'loenardo@loenardo.com',
+    gravatarEndPoint: '',
+    score: 0
+  },
+  gameReducer: {}
+}
+
+global.fetch = jest.fn(() => Promise.resolve({
+  json: () => Promise.resolve({
+    response_code: 0,
+    response_message: "Token Generated Successfully!",
+    token: "5452bc28b97cdb366bd3cc955bbdb784aced415034afe8c9db1b4515202ede06",
+  })
+}))
+
+describe('teste Login com mocks', () => {
+  // afterEach(jest.clearAllMocks());
+
+  test('testando a requisição a API', async () => {
+    const { history, store  } = renderWithRouterAndRedux(<App />, initialState, '/');
+
+    userEvent.type(screen.getByRole('textbox', { name: /name:/i }), 'loenardo');
+    userEvent.type(screen.getByRole('textbox', { name: /email:/i }), 'loenardo@gmail.com');
+    userEvent.click(screen.getByRole('button', { name: /play/i }));
+
+    await waitFor(() => expect(history.location.pathname).toBe('/game'));
+    expect(window.localStorage.getItem('token'))
+      .toBe("5452bc28b97cdb366bd3cc955bbdb784aced415034afe8c9db1b4515202ede06");
+
+    screen.logTestingPlaygroundURL();
+  });
+})
