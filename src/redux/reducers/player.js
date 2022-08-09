@@ -1,8 +1,9 @@
-import { RECEIVE_NEW_SCORE } from '../actions/gameActions';
+import { CLEAR_SCORE, RECEIVE_NEW_SCORE } from '../actions/gameActions';
 import { GET_GRAVATAR, SET_EMAIL } from '../actions/headerActions';
 
 const INITIAL_STATE = {
   name: '',
+  assertions: 0,
   email: '',
   gravatarEndPoint: '',
   score: 0,
@@ -28,7 +29,11 @@ const player = (state = INITIAL_STATE, action) => {
       name: state.name,
       gravatarEmail: state.gravatarEmail,
       score: state.score + action.payload,
-      assetions: state.assertions,
+      assertions: state.assertions + 1,
+    };
+  case CLEAR_SCORE:
+    return {
+      ...INITIAL_STATE,
     };
   default:
     return state;
