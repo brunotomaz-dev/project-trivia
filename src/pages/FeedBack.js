@@ -13,21 +13,26 @@ class FeedBack extends React.Component {
 
   render() {
     const three = 3;
-    const { assertions } = this.props;
+    const { assertions, score } = this.props;
     return (
       <div>
         <Header />
-        <Link to="/game">
+        <Link to="/">
           <button
             type="button"
             onClick={ this.clearScore }
+            data-testid="btn-play-again"
           >
-            Jogar Novamente
+            Play Again
           </button>
         </Link>
         <h3 data-testid="feedback-text">
           { (assertions < three) ? 'Could be better...' : 'Well Done!' }
         </h3>
+        <div className="feedback-result">
+          <h3 data-testid="feedback-total-score">{ score }</h3>
+          <h3 data-testid="feedback-total-question">{ assertions}</h3>
+        </div>
       </div>
     );
   }
@@ -35,6 +40,7 @@ class FeedBack extends React.Component {
 
 const mapStateToProps = (store) => ({
   assertions: store.player.assertions,
+  score: store.player.score,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -43,6 +49,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 FeedBack.propTypes = {
   assertions: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
   clearScoreDispatch: PropTypes.func.isRequired,
 };
 
