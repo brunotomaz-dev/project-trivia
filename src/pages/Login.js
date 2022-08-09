@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Settings from './Settings';
 import { actionSetEmail } from '../redux/actions/headerActions';
+import { clearScore } from '../redux/actions/gameActions';
 
 class Login extends React.Component {
   constructor() {
@@ -13,6 +14,11 @@ class Login extends React.Component {
       buttonDisabled: true,
       redirectConfig: false,
     };
+  }
+
+  componentDidMount() {
+    const { clearScoreDispatch } = this.props;
+    clearScoreDispatch();
   }
 
   validateInput = () => {
@@ -102,6 +108,7 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   changeEmail: (email, name) => dispatch(actionSetEmail(email, name)),
+  clearScoreDispatch: () => dispatch(clearScore()),
 });
 
 Login.propTypes = {
