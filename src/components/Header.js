@@ -14,17 +14,23 @@ class Header extends React.Component {
     const { score, name, gravatarEndPoint } = this.props;
     return (
       <header className="header">
-        <h2 className="header-score" data-testid="header-score">
-          { score }
-        </h2>
-        <h2 className="header-player-name" data-testid="header-player-name">
-          { name }
-        </h2>
-        <img
-          src={ gravatarEndPoint }
-          alt="gravatar"
-          data-testid="header-profile-picture"
-        />
+        <div>
+          <h2 className="header-player-name" data-testid="header-player-name">
+            { name }
+          </h2>
+          <img
+            src={ gravatarEndPoint }
+            alt="gravatar"
+            data-testid="header-profile-picture"
+          />
+        </div>
+        <div>
+          <h2 className="header-score" data-testid="header-score">
+            Pontuação:
+            {' '}
+            { score }
+          </h2>
+        </div>
       </header>
     );
   }

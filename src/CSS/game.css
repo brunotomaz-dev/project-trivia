@@ -1,0 +1,115 @@
+/* stylelint-disable max-line-length */
+
+@keyframes heartbeat {
+
+  from {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+
+  10% {
+    animation-timing-function: ease-in;
+    transform: scale(0.91);
+  }
+
+  17% {
+    animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+
+  33% {
+    animation-timing-function: ease-in;
+    transform: scale(0.87);
+  }
+
+  45% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}
+
+@keyframes shadow-pop-tr {
+
+  0% {
+    box-shadow: 0 0 #3e3e3e , 0 0 #3e3e3e , 0 0 #3e3e3e , 0 0 #3e3e3e , 0 0 #3e3e3e , 0 0 #3e3e3e , 0 0 #3e3e3e , 0 0 #3e3e3e;
+    transform: translateX(0) translateY(0);
+  }
+
+  100% {
+    box-shadow: 1px -1px #3e3e3e , 2px -2px #3e3e3e , 3px -3px #3e3e3e , 4px -4px #3e3e3e , 5px -5px #3e3e3e , 6px -6px #3e3e3e , 7px -7px #3e3e3e , 8px -8px #3e3e3e;
+    transform: translateX(-8px) translateY(8px);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1s ease-in-out infinite both;
+}
+
+.shadow-pop-tr {
+  animation: shadow-pop-tr 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+
+.header {
+  background: #7d7;
+  border-bottom: 5px solid rgb(94, 179, 94);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header * {
+  align-self: center;
+  display: flex;
+  margin-left: 10px;
+  padding: 2px;
+}
+
+.header img {
+  height: 35px;
+}
+
+body {
+  background: #f9f9f9;
+}
+
+.questions {
+  background: white;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 5%;
+  padding: 8px 16px;
+  width: fit-content;
+}
+
+.game-timer {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.game-next-button {
+  background-color: #0a0a23;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.game-next-button:hover, .questions div button:hover {
+  background-color: #002ead;
+  transition: 0.4s;
+}
+
+.questions div button {
+  background-color: #0a0a23;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  margin-top: 15px;
+  padding: 15px;
+  width: 20%;
+}
+

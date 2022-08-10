@@ -69,8 +69,7 @@ class Questions extends React.Component {
     ));
 
     return (
-      <div>
-        Questions Page
+      <div className="questions shadow-pop-tr">
         { categoryElement }
         { textElement }
         { answerRandomElement }

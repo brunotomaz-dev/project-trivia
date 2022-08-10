@@ -10,7 +10,7 @@ class Timer extends React.Component {
   render() {
     const { timer } = this.props;
     return (
-      <h3 className="game-timer">
+      <h3 className="game-timer heartbeat">
         { timer }
       </h3>
     );
