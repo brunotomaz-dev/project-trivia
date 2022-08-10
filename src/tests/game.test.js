@@ -4,7 +4,8 @@ import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux";
 import { cleanup, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Game from '../pages/Game';
-import { clear, firstInitialState, fourthInitialState, results, secondInitialState, thirdInitialState, timerGame } from './helpers/helpsForTests';
+import { clear, firstInitialState, fourthInitialState, secondInitialState, thirdInitialState } from './helpers/helpsForTests';
+import App from '../App';
 
 
 describe('component FeedBack', () => {
@@ -80,14 +81,14 @@ describe('component FeedBack', () => {
   });
 
   jest.useFakeTimers();
-  jest.spyOn(global, 'setTimeout');
-  test('conferindo as questions', async () => {
-    const component = renderWithRouterAndRedux(<Game />, fourthInitialState, '/game');
-    const timer = timerGame;
-    timer();
+  jest.spyOn(global, 'setInterval');
+  test('conferindo as questions', () => {
+    const { history } = renderWithRouterAndRedux(<App />, thirdInitialState, '/game');
+    jest.advanceTimersByTime(5000);
+    screen.getByText('25');
+
+    userEvent.click(screen.getByTestId('correct-answer'));
     screen.logTestingPlaygroundURL();
-
-    expect(setTimeout).toHaveBeenCalledTimes(2);
-
+    jest.advanceTimersByTime(25000);
   });
 })

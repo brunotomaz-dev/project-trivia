@@ -26,9 +26,9 @@ class Ranking extends React.Component {
     );
 
     const rankingInfo = JSON.parse(localStorage.getItem('ranking')) || [];
-    console.log(rankingInfo);
+    // console.log(rankingInfo);
     const rankingInfoOrdered = rankingInfo.sort((a, b) => b.score - a.score);
-    console.log(rankingInfoOrdered);
+    // console.log(rankingInfoOrdered);
     const rankingList = (
       <ul className="list-container-ul">
         { rankingInfoOrdered.map((player, index) => (
@@ -57,18 +57,11 @@ class Ranking extends React.Component {
       </ul>
     );
     return (
-      <div className="ranking-container">
-        <h3
-          data-testid="ranking-title"
-          className="ranking-title"
-        >
-          Ranking
-        </h3>
-        { redirectHome ? <Redirect exact path="/" /> : '' }
-        <div className="ranking-main">
-          { rankingList }
-          { homeButton }
-        </div>
+      <div>
+        <h3 data-testid="ranking-title">Ranking</h3>
+        { redirectHome ? <Redirect to="/" /> : '' }
+        { homeButton }
+        { rankingList }
       </div>
     );
   }
