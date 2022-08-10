@@ -64,7 +64,7 @@ class Ranking extends React.Component {
         >
           Ranking
         </h3>
-        { redirectHome ? <Redirect exact path="/" /> : '' }
+        { redirectHome ? <Redirect to="/" /> : '' }
         <div className="ranking-main">
           { rankingList }
           { homeButton }
