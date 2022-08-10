@@ -102,8 +102,9 @@ body {
   border-radius: 10px;
   color: black;
   margin-top: 15px;
+  min-width: 20%;
   padding: 15px;
-  width: 20%;
+  width: fit-content;
 }
 
 .game-next-button:hover, .questions div button:hover {
