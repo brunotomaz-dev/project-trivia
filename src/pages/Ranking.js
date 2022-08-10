@@ -57,11 +57,18 @@ class Ranking extends React.Component {
       </ul>
     );
     return (
-      <div>
-        <h3 data-testid="ranking-title">Ranking</h3>
+      <div className="ranking-container">
+        <h3
+          data-testid="ranking-title"
+          className="ranking-title"
+        >
+          Ranking
+        </h3>
         { redirectHome ? <Redirect to="/" /> : '' }
-        { homeButton }
-        { rankingList }
+        <div className="ranking-main">
+          { rankingList }
+          { homeButton }
+        </div>
       </div>
     );
   }
