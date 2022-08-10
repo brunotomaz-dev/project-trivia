@@ -1,54 +1,55 @@
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
+
   --green: rgb(0, 190, 50);
+
   --background: rgb(230, 230, 230);
+
   --font-color: rgb(20, 20, 20);
 }
 
 body {
   background-color: var(--background);
   color: var(--font-color);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial , Helvetica , sans-serif;
 }
 
 .ranking-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
-  /* background-color: red; */
 }
 
 .list-container {
   background-color: var(--green);
-  list-style-type: none;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
   border: 1px solid black;
   border-radius: 8px;
-  padding: 15px;
   margin: 10px;
+  padding: 15px;
   width: 300px;
 }
 
-.list-item:not(.gravatar) {
-  text-align: center;
-  /* border: none; */
+.list-item:not( .gravatar ) {
   border-bottom: 1px solid black;
+  text-align: center;
   border-radius: 5px;
-  padding: 3px;
   margin: 15px;
+  padding: 3px;
 }
 
 .score {
-  border: 1px solid black;
   background-color: var(--background);
+  border: 1px solid black;
   font-size: 20px;
 }
 
@@ -58,14 +59,12 @@ body {
 
 .btn-go-home {
   background-color: var(--green);
-  padding: 15px;
   border: 1px solid black;
   border-radius: 8px;
-
+  padding: 15px;
   height: 90px;
-  width: 120px;
   font-size: 25px;
-
+  width: 120px;
   text-shadow: 0 0 5px white;
 }
 
@@ -75,13 +74,13 @@ body {
 
 .ranking-title {
   background-color: var(--green);
-  text-shadow: 0 0 5px white;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
-  width: 100%;
-  height: 80px;
+  text-shadow: 0 0 5px white;
   font-size: 25px;
+  height: 80px;
+  width: 100%;
   padding: 15px;
 }
 
@@ -89,10 +88,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  justify-items: end;
   align-items: center;
+  justify-items: end;
   padding: 15px;
-  width: 100%;
   height: 100%;
-  /* background-color: blueviolet; */
+  width: 100%;
 }
