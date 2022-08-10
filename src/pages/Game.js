@@ -37,9 +37,7 @@ class Game extends React.Component {
     const oneSecond = 1000;
     setInterval(() => {
       this.setState((prevState) => ({
-        timer: (prevState.timer > 0)
-          ? prevState.timer - 1
-          : 0,
+        timer: prevState.timer - 1,
       }));
     }, oneSecond);
   }

@@ -32,7 +32,7 @@ describe('Testa a página de login', () => {
     userEvent.type(inputName, userMock.name);
     userEvent.type(inputEmail, userMock.email);
     userEvent.click(playButton);
-    // screen.logTestingPlaygroundURL();
+    screen.logTestingPlaygroundURL();
 
     // await screen.findByText('Game Page');
 
