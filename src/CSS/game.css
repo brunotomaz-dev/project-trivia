@@ -98,18 +98,16 @@ body {
   padding: 15px;
 }
 
-.game-next-button:hover, .questions div button:hover {
-  background-color: #002ead;
-  transition: 0.4s;
-}
-
 .questions div button {
-  background-color: #0a0a23;
-  border: none;
   border-radius: 10px;
-  color: white;
+  color: black;
   margin-top: 15px;
   padding: 15px;
   width: 20%;
+}
+
+.game-next-button:hover, .questions div button:hover {
+  background-color: #002ead;
+  transition: 0.4s;
 }
 
