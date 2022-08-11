@@ -7,6 +7,7 @@ import Timer from '../components/Timer';
 import { receiveScore, requestQuestions } from '../redux/actions/gameActions';
 import Header from '../components/Header';
 import NextButton from '../components/NextButton';
+import '../CSS/game.css';
 
 class Game extends React.Component {
   constructor() {
@@ -37,9 +38,7 @@ class Game extends React.Component {
     const oneSecond = 1000;
     setInterval(() => {
       this.setState((prevState) => ({
-        timer: (prevState.timer > 0)
-          ? prevState.timer - 1
-          : 0,
+        timer: prevState.timer - 1,
       }));
     }, oneSecond);
   }
@@ -58,7 +57,7 @@ class Game extends React.Component {
     });
     const { name, id } = target;
     if (id === 'correct-answer') {
-      console.log('resposta-correta');
+      // console.log('resposta-correta');
       this.correctAnswer(name);
     }
   }
@@ -70,7 +69,7 @@ class Game extends React.Component {
   }
 
   changeIndex = () => {
-    const maxIndex = 5;
+    const maxIndex = 4;
     this.setState((prevState) => ({
       showBorder: false,
       timer: 30,
@@ -106,7 +105,7 @@ class Game extends React.Component {
             ? <Timer changeShowBorder={ this.changeShowBorderPerTime } timer={ timer } />
             : ''
         }
-        { responseCode === invalidTokenCode ? <Redirect exact path="/" /> : '' }
+        { responseCode === invalidTokenCode ? <Redirect to="/" /> : '' }
         { questionsComponent }
         {
           (showBorder)
