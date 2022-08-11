@@ -5,8 +5,11 @@
 }
 
 :root {
+
   --green: rgb(0, 190, 50);
+
   --background: rgb(230, 230, 230);
+
   --font-color: rgb(20, 20, 20);
 }
 
@@ -38,11 +41,11 @@
 }
 
 .feedback-body {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--header-height));
   justify-content: center;
-  align-items: center;
+  min-height: calc(100vh - var(--header-height));
   padding: 20px;
 }
 
@@ -55,6 +58,6 @@
   border-radius: 8px;
   color: var(--background);
   display: flex;
-  padding: 15px;
   margin: 20px;
+  padding: 15px;
 }

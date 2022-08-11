@@ -1,4 +1,5 @@
 /* Essa parte do código foi desenvolvida exclusivamente por Felipe Donatto */
+
 @keyframes color-change-2x {
 
   0% {
@@ -65,10 +66,10 @@ body {
 }
 
 .login-main {
-  width: 30%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 30%;
 }
 
 .triviaLogo {

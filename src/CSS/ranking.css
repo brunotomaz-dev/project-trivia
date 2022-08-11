@@ -5,9 +5,13 @@
 }
 
 :root {
-  --black: rgb(0, 0, 0);
+
+  --black: black;
+
   --green: #00be32;
+
   --background: rgb(230, 230, 230);
+
   --font-color: rgb(20, 20, 20);
 }
 
@@ -19,17 +23,18 @@
 }
 
 .list-container {
-  justify-content: flex-end;
   align-items: center;
   background-color: var(--black);
-  border: 5px solid rgb(255, 255, 255);
+  border: 5px solid white;
   border-radius: 8px;
   color: white;
   display: flex;
   flex-direction: row;
+  font-family: Arial , Helvetica , sans-serif;
   font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
   height: 160px;
+
+  /* justify-content: flex-end; */
   justify-content: space-around;
   list-style-type: none;
   margin: 10px;
@@ -47,12 +52,13 @@
 
 .score-name {
   width: 65%;
-  
+
 }
 
 .gravatar {
-  width: 80px;
+  border-radius: 30%;
   height: 80px;
+  width: 80px;
 }
 
 .score {
@@ -61,9 +67,9 @@
   font-size: 20px;
 }
 
-.gravatar {
+/* .gravatar {
   border-radius: 30%;
-}
+} */
 
 .btn-go-home {
   background-color: var(--green);
@@ -82,11 +88,11 @@
 .ranking-title {
   align-items: center;
   background-color: var(--black);
+  border-bottom: 5px solid white;
   color: white;
   display: flex;
   font-size: 30px;
   height: 70px;
-  border-bottom: 5px solid white;
   justify-content: center;
   width: 100%;
 }
