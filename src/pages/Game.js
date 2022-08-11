@@ -7,6 +7,7 @@ import Timer from '../components/Timer';
 import { receiveScore, requestQuestions } from '../redux/actions/gameActions';
 import Header from '../components/Header';
 import NextButton from '../components/NextButton';
+import '../CSS/game.css';
 
 class Game extends React.Component {
   constructor() {

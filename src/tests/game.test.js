@@ -83,12 +83,24 @@ describe('component FeedBack', () => {
   jest.useFakeTimers();
   jest.spyOn(global, 'setInterval');
   test('conferindo as questions', () => {
+    localStorage.clear();
     const { history } = renderWithRouterAndRedux(<App />, thirdInitialState, '/game');
+    console.log(history);
     jest.advanceTimersByTime(5000);
     screen.getByText('25');
 
     userEvent.click(screen.getByTestId('correct-answer'));
+    userEvent.click(screen.getByRole('button', { name: /next/i }));
+    userEvent.click(screen.getByTestId('correct-answer'));
+    userEvent.click(screen.getByRole('button', { name: /next/i }));
+    userEvent.click(screen.getByTestId('correct-answer'));
+    userEvent.click(screen.getByRole('button', { name: /next/i }));
+    userEvent.click(screen.getByTestId('correct-answer'));
+    userEvent.click(screen.getByRole('button', { name: /next/i }));
+    userEvent.click(screen.getByTestId('correct-answer'));
+    userEvent.click(screen.getByRole('button', { name: /próxima/i }));
+    // screen.logTestingPlaygroundURL();
+    userEvent.click(screen.getByRole('button', { name: /ranking/i }));
     screen.logTestingPlaygroundURL();
-    jest.advanceTimersByTime(25000);
   });
 })
