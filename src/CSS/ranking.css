@@ -5,18 +5,10 @@
 }
 
 :root {
-
-  --green: rgb(0, 190, 50);
-
+  --black: rgb(0, 0, 0);
+  --green: #00be32;
   --background: rgb(230, 230, 230);
-
   --font-color: rgb(20, 20, 20);
-}
-
-body {
-  background-color: var(--background);
-  color: var(--font-color);
-  font-family: Arial , Helvetica , sans-serif;
 }
 
 .ranking-container {
@@ -27,16 +19,22 @@ body {
 }
 
 .list-container {
+  justify-content: flex-end;
   align-items: center;
-  background-color: var(--green);
-  border: 1px solid black;
+  background-color: var(--black);
+  border: 5px solid rgb(255, 255, 255);
   border-radius: 8px;
+  color: white;
   display: flex;
+  flex-direction: row;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 160px;
   justify-content: space-around;
   list-style-type: none;
   margin: 10px;
   padding: 15px;
-  width: 300px;
+  width: 400px;
 }
 
 .list-item:not( .gravatar ) {
@@ -47,8 +45,18 @@ body {
   text-align: center;
 }
 
+.score-name {
+  width: 65%;
+  
+}
+
+.gravatar {
+  width: 80px;
+  height: 80px;
+}
+
 .score {
-  background-color: var(--background);
+  background-color: var(--green);
   border: 1px solid black;
   font-size: 20px;
 }
@@ -59,7 +67,6 @@ body {
 
 .btn-go-home {
   background-color: var(--green);
-  border: 1px solid black;
   border-radius: 8px;
   font-size: 25px;
   height: 90px;
@@ -74,13 +81,13 @@ body {
 
 .ranking-title {
   align-items: center;
-  background-color: var(--green);
+  background-color: var(--black);
+  color: white;
   display: flex;
-  font-size: 25px;
-  height: 80px;
+  font-size: 30px;
+  height: 70px;
+  border-bottom: 5px solid white;
   justify-content: center;
-  padding: 15px;
-  text-shadow: 0 0 5px white;
   width: 100%;
 }
 

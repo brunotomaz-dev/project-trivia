@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* Essa parte do código foi desenvolvida exclusivamente por Felipe Donatto */
->>>>>>> main-group-17
 @keyframes color-change-2x {
 
   0% {
@@ -51,17 +48,27 @@ body {
 
 .wobble-hor-bottom {
   animation: wobble-hor-bottom 3s infinite both;
-  height: 50%;
+  width: 70%;
 }
 
 .riddleImg2 {
   display: flex;
+  justify-content: center;
   transform: scaleX(-1);
-  width: 45%;
+  width: 35%;
 }
 
 .riddleImg {
-  width: 45%;
+  display: flex;
+  justify-content: center;
+  width: 35%;
+}
+
+.login-main {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .triviaLogo {
@@ -74,9 +81,9 @@ body {
 
   /* border: 1px solid red; */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-family: Courier New , Courier , monospace;
-  margin: auto;
+  margin: 0 auto;
   margin-top: 10%;
   width: 100%;
 }

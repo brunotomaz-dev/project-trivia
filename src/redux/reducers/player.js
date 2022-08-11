@@ -2,7 +2,7 @@ import { CLEAR_SCORE, RECEIVE_NEW_SCORE } from '../actions/gameActions';
 import { GET_GRAVATAR, SET_EMAIL } from '../actions/headerActions';
 
 const INITIAL_STATE = {
-  name: 'nome aleatorio',
+  name: '',
   assertions: 0,
   email: '',
   gravatarEndPoint: '',

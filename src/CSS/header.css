@@ -6,9 +6,9 @@
 
 :root {
 
-  --green: rgb(0, 190, 50);
+  --green: rgb(20, 57, 80);
 
-  --header-height: 180px;
+  --header-height: 70px;
 }
 
 .header {
