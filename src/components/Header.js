@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
 import { actionGetGravatar } from '../redux/actions/headerActions';
+import '../CSS/header.css';
 
 class Header extends React.Component {
   componentDidMount() {
