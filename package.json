@@ -1,7 +1,7 @@
 {
   "name": "trivia-react-redux",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://brunotomaz-dev.github.io/project-trivia",
   "engines": {
     "node": "16"
   },
@@ -21,6 +21,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "cy": "cypress run",
     "cy:open": "cypress open",
     "start": "react-scripts start",
