@@ -11,6 +11,7 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 -->
 
 Desenvolvido um jogo de perguntas e respostas baseado no jogo Trivia utilizando React e Redux, em grupo.
+
 Uma aplicação onde a pessoa usuária poderá:
 
 Logar no jogo e, se o email tiver cadastro no site Gravatar, ter sua foto associada ao perfil da pessoa usuária.
