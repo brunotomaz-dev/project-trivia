@@ -78,8 +78,16 @@
 }
 
 .game-timer {
+  background-color: thistle;
+  border-radius: 100%;
+  color: #0a0a23;
   font-size: xx-large;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 7px;
   text-align: center;
+  width: 50px;
 }
 
 .game-next-button {
